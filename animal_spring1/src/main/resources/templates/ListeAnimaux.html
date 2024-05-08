@@ -21,18 +21,26 @@
                     <th>Nom</th>
                     <th>Age</th>
                     <th>Type</th>
+					<th>categorie</th>
+					<th></th>
+					<th></th>
                 </tr>
                 <tr th:each="animal : ${animaux.content}">
                     <td th:text="${animal.id}"></td>
                     <td th:text="${animal.nom}"></td>
                     <td th:text="${animal.age}"></td>
                     <td th:text="${animal.type}"></td>
-                    <td>
+					<td th:if= "${!#strings.isEmpty(animal.categorie)}" th:text="${animal.categorie.nomCat}"></td>
+					 <td th:if= "${#strings.isEmpty(animal.categorie)}" th:text="${'Pas de Catégorie'}"></td>
+					
+                    <td  sec:authorize="hasAuthority('ADMIN')">
                         <a class="btn btn-danger" onclick="return confirm('Etes-vous sûr ?')"
                            th:href="@{supprimerAnimal(id=${animal.id}, page=${currentPage}, size=${size})}">
                             Supprimer
                         </a>
-                    </td>
+                    </td >
+					<td 	sec:authorize="hasAuthority('ADMIN')"><a class="btn btn-success" th:href="@{/modifierAnimal(id=${animal.id},page=${currentPage},size=${size})}">Editer</a></td>
+
                 </tr>
             </table>
             <ul class="nav nav-pills">

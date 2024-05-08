@@ -25,6 +25,6 @@ public class AnimalSpring1Application implements CommandLineRunner {
         //animalService.saveAnimal(new Animal("Cat", 2, "Mammal"));
         //animalService.saveAnimal(new Animal("Dog", 4, "Mammal"));
         //animalService.saveAnimal(new Animal("Parrot", 1, "Bird"));
-    	repositoryRestConfiguration.exposeIdsFor(Animal.class);
+    	//repositoryRestConfiguration.exposeIdsFor(Animal.class);
     }
 }

@@ -20,4 +20,5 @@ public interface AnimalService {
     List<Animal> findByCategorieIdCat(Long id);
     List<Animal> findAllByOrderByNameAsc();
     List<Animal> trierAnimauxNomsPrix();
+    List<Categorie> getAllCategories();
 }

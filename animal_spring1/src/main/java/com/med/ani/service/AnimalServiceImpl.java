@@ -3,6 +3,8 @@ package com.med.ani.service;
 import com.med.ani.entities.Animal;
 import com.med.ani.entities.Categorie;
 import com.med.ani.repos.AnimalRepository;
+import com.med.ani.repos.CategorieRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -14,6 +16,13 @@ import java.util.List;
 @Service
 public class AnimalServiceImpl implements AnimalService {
 
+	@Autowired
+	CategorieRepository categorieRepository;
+	@Override
+	public List<Categorie> getAllCategories() {
+	return categorieRepository.findAll();
+	}
+	
     @Autowired
     private AnimalRepository animalRepository;
 
