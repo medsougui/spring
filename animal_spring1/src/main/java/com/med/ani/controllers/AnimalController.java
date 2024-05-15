@@ -1,7 +1,7 @@
 package com.med.ani.controllers;
 import java.util.List;
 
-import javax.validation.Valid;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.med.ani.entities.Animal;
 import com.med.ani.entities.Categorie;
 import com.med.ani.service.AnimalService;
+
+import jakarta.validation.Valid;
 
 @Controller
 public class AnimalController {
@@ -44,7 +46,6 @@ public class AnimalController {
         modelMap.addAttribute("categories", cats);
         return "formAnimal";
     }
-
     @RequestMapping("/saveAnimal")
     public String saveAnimal(@Valid Animal animal, BindingResult bindingResult,
                              @RequestParam(name = "page", defaultValue = "0") int page,
